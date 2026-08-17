@@ -117,3 +117,16 @@ a:hover {
 	background: var(--color-accent-primary);
 	color: var(--color-text-inverse);
 }
+
+/**
+ * SP visibility utility.
+ *
+ * Mobileでのみ表示し、タブレット・Desktopでは非表示にします。
+ */
+.sp {
+	display: block;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
+}

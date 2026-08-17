@@ -1,0 +1,63 @@
+/**
+ * Button component.
+ *
+ * リンクとbutton要素の両方で使用できる共通ボタンです。
+ * 基本スタイルをSecondaryとし、modifierでPrimaryへ切り替えます。
+ */
+
+.c-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 54px;
+	padding-inline: var(--space-40);
+	border: 1px solid var(--color-text-primary);
+	border-radius: var(--radius-md);
+	background-color: var(--color-surface-primary);
+	color: var(--color-text-primary);
+	font-family: var(--font-sans);
+	font-size: var(--font-size-sm);
+	font-weight: 400;
+	line-height: var(--line-height-base);
+	text-align: center;
+	white-space: nowrap;
+	appearance: none;
+	transition:
+		border-color var(--transition-base),
+		background-color var(--transition-base),
+		color var(--transition-base);
+
+	&:hover {
+		border-color: var(--color-text-primary);
+		background-color: var(--color-text-primary);
+		color: var(--color-text-inverse);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--color-accent-primary);
+		outline-offset: 4px;
+	}
+
+	&:disabled,
+	&[aria-disabled="true"] {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	&--primary {
+		border-color: var(--color-text-primary);
+		background-color: var(--color-text-primary);
+		color: var(--color-text-inverse);
+
+		&:hover {
+			border-color: var(--color-accent-hover);
+			background-color: var(--color-accent-hover);
+			color: var(--color-text-inverse);
+		}
+	}
+
+	&--full {
+		width: 100%;
+	}
+}

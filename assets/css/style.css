@@ -200,6 +200,20 @@ a:hover {
 }
 
 /**
+ * SP visibility utility.
+ *
+ * Mobileでのみ表示し、タブレット・Desktopでは非表示にします。
+ */
+.sp {
+  display: block;
+}
+@media (min-width: 768px) {
+  .sp {
+    display: none;
+  }
+}
+
+/**
  * Content container.
  *
  * ページ内のコンテンツ幅と左右の余白を共通管理します。
@@ -411,6 +425,148 @@ a:hover {
   border-radius: var(--radius-sm);
   outline: 2px solid var(--color-accent-primary);
   outline-offset: 4px;
+}
+
+/**
+ * Button component.
+ *
+ * リンクとbutton要素の両方で使用できる共通ボタンです。
+ * 基本スタイルをSecondaryとし、modifierでPrimaryへ切り替えます。
+ */
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding-inline: var(--space-40);
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: var(--line-height-base);
+  text-align: center;
+  white-space: nowrap;
+  appearance: none;
+  transition: border-color var(--transition-base), background-color var(--transition-base), color var(--transition-base);
+}
+.c-button:hover {
+  border-color: var(--color-text-primary);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+}
+.c-button:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 4px;
+}
+.c-button:disabled, .c-button[aria-disabled=true] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.c-button--primary {
+  border-color: var(--color-text-primary);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+}
+.c-button--primary:hover {
+  border-color: var(--color-accent-hover);
+  background-color: var(--color-accent-hover);
+  color: var(--color-text-inverse);
+}
+.c-button--full {
+  width: 100%;
+}
+
+/**
+ * Home page.
+ *
+ * FigmaのDesktop / Mobile版Heroを基準にしています。
+ */
+.home-hero {
+  position: relative;
+  display: flex;
+  min-height: 820px;
+  overflow: hidden;
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+}
+.home-hero__media {
+  position: absolute;
+  inset: 0;
+}
+.home-hero__media::after {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(47, 45, 42, 0.68);
+  content: "";
+}
+.home-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.home-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+.home-hero__content {
+  width: 100%;
+  max-width: 900px;
+}
+.home-hero__eyebrow {
+  margin: 0 0 var(--space-24);
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-tight);
+}
+.home-hero__title {
+  margin: 0 0 var(--space-24);
+  font-family: var(--font-serif-display);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: var(--line-height-tight);
+}
+.home-hero__message {
+  margin: 0 0 var(--space-24);
+  font-family: var(--font-serif-ja);
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  line-height: 1.6;
+}
+.home-hero__description {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: 1.9;
+}
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: var(--space-24);
+  gap: var(--space-16);
+}
+@media (min-width: 768px) {
+  .home-hero__eyebrow {
+    margin-bottom: var(--space-32);
+  }
+  .home-hero__title {
+    margin-bottom: var(--space-32);
+    font-size: var(--font-size-2xl);
+  }
+  .home-hero__message {
+    margin-bottom: var(--space-24);
+    font-size: 2.5rem;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .home-hero__actions {
+    margin-top: var(--space-32);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
