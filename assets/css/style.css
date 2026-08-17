@@ -481,6 +481,37 @@ a:hover {
 }
 
 /**
+ * Section heading component.
+ *
+ * Homeや下層ページで共通使用するセクション見出しです。
+ */
+.c-section-heading {
+  text-align: center;
+}
+.c-section-heading__eyebrow {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+}
+.c-section-heading__eyebrow::after {
+  display: block;
+  width: 28px;
+  height: 1px;
+  margin: var(--space-16) auto 0;
+  background-color: var(--color-accent-primary);
+  content: "";
+}
+.c-section-heading__title {
+  margin: var(--space-16) 0 0;
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  line-height: var(--line-height-tight);
+}
+
+/**
  * Home page.
  *
  * FigmaのDesktop / Mobile版Heroを基準にしています。
@@ -566,6 +597,79 @@ a:hover {
   }
   .home-hero__actions {
     margin-top: var(--space-32);
+  }
+}
+
+/**
+ * Home about section.
+ */
+.home-about {
+  padding-block: var(--space-40) var(--space-64);
+  background-color: var(--color-bg-primary);
+}
+.home-about__content {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-64);
+  gap: var(--space-40);
+}
+.home-about__copy {
+  min-width: 0;
+}
+.home-about__lead {
+  margin: 0;
+  font-family: var(--font-serif-ja);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: var(--line-height-base);
+}
+.home-about__description {
+  margin: var(--space-24) 0 0;
+  font-size: var(--font-size-base);
+  line-height: 1.9;
+}
+.home-about__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-32) var(--space-24);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-primary);
+  text-align: center;
+}
+.home-about__image {
+  width: min(240px, 100%);
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.home-about__meta {
+  margin: var(--space-16) 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+@media (min-width: 768px) {
+  .home-about {
+    padding-block: var(--space-80);
+  }
+  .home-about__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: center;
+    margin-top: var(--space-48);
+    gap: var(--space-96);
+  }
+  .home-about__lead {
+    font-size: var(--font-size-lg);
+  }
+  .home-about__description {
+    margin-top: var(--space-32);
+  }
+  .home-about__profile {
+    min-height: 420px;
+    justify-content: center;
   }
 }
 
