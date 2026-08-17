@@ -1,0 +1,86 @@
+/**
+ * Modern CSS reset.
+ *
+ * ブラウザごとの初期スタイルの差を小さくし、
+ * OFFICIAL.MSBのデザインを安定して実装するための土台です。
+ */
+
+/* paddingとborderを要素の幅・高さに含めます。 */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* iPhoneなどで画面回転時に文字が勝手に拡大されるのを防ぎます。 */
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+/* ブラウザが標準で設定する余白を取り除きます。 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/*
+ * ナビゲーションなど、role="list"を指定したリストだけ
+ * マーカーと余白を取り除きます。
+ * 記事本文のul・olには影響させません。
+ */
+ul[role="list"],
+ol[role="list"] {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* メディア要素が親要素からはみ出さないようにします。 */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* フォーム部品の文字設定をサイト全体と統一します。 */
+button,
+input,
+textarea,
+select {
+	color: inherit;
+	font: inherit;
+}
+
+/* 操作できるボタンにマウスポインターを表示します。 */
+button:not(:disabled) {
+	cursor: pointer;
+}
+
+/* テキストエリアは縦方向だけサイズ変更できるようにします。 */
+textarea {
+	resize: vertical;
+}
+
+/* 表のセル間にできるブラウザ標準の隙間をなくします。 */
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+/* hidden属性が付いた要素を確実に非表示にします。 */
+[hidden] {
+	display: none !important;
+}

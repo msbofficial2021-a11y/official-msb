@@ -88,7 +88,6 @@ html {
 }
 
 body {
-	margin: 0;
 	background: var(--color-bg-primary);
 	color: var(--color-text-primary);
 	font-family: var(--font-sans);
@@ -97,10 +96,11 @@ body {
 	letter-spacing: 0;
 }
 
-img,
-svg {
-	display: block;
-	max-width: 100%;
+/*
+ * width属性とheight属性を持つWordPress画像でも、
+ * 横幅の縮小に合わせて縦横比を維持します。
+ */
+img {
 	height: auto;
 }
 
@@ -111,13 +111,6 @@ a {
 
 a:hover {
 	color: var(--color-accent-hover);
-}
-
-button,
-input,
-textarea,
-select {
-	font: inherit;
 }
 
 ::selection {
