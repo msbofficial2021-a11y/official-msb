@@ -21,6 +21,7 @@ function official_msb_setup() {
 	register_nav_menus(
 		array(
 			'global' => __( 'Global Navigation', 'official-msb' ),
+			'footer' => __( 'Footer Navigation', 'official-msb' ),
 		)
 	);
 }

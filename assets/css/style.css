@@ -347,4 +347,70 @@ a:hover {
   outline-offset: 4px;
 }
 
+/**
+ * Site footer.
+ *
+ * FigmaのDesktop / Mobile共通の高さ160pxを基準にしています。
+ */
+.site-footer {
+  background-color: var(--color-surface-secondary);
+  color: var(--color-text-primary);
+}
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  gap: var(--space-32);
+}
+@media (min-width: 768px) {
+  .site-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-40);
+  }
+}
+.site-footer__logo {
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8) var(--space-24);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: var(--line-height-base);
+}
+@media (min-width: 768px) {
+  .site-footer__links {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
+.site-footer__menu {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: var(--space-24);
+}
+.site-footer__menu a, .site-footer__back-to-top {
+  display: block;
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+.site-footer__logo:focus-visible, .site-footer__menu a:focus-visible, .site-footer__back-to-top:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 4px;
+}
+
 /*# sourceMappingURL=style.css.map */
