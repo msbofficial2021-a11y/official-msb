@@ -9,8 +9,10 @@ get_header();
 ?>
 
 <main class="site-main">
-	<h1>OFFICIAL.MSB</h1>
-	<p>Original theme is active.</p>
+	<div class="l-container">
+		<h1>OFFICIAL.MSB</h1>
+		<p>Original theme is active.</p>
+	</div>
 </main>
 
 <?php

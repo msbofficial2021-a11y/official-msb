@@ -15,7 +15,9 @@
 <?php wp_body_open(); ?>
 
 <header class="site-header">
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<?php bloginfo( 'name' ); ?>
-	</a>
+	<div class="site-header__inner l-container">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<?php bloginfo( 'name' ); ?>
+		</a>
+	</div>
 </header>

@@ -199,4 +199,27 @@ a:hover {
   color: var(--color-text-inverse);
 }
 
+/**
+ * Content container.
+ *
+ * ページ内のコンテンツ幅と左右の余白を共通管理します。
+ * FigmaのDesktop最大幅1200px、Mobile左右余白24pxを基準にしています。
+ */
+.l-container {
+  width: 100%;
+  max-width: calc(var(--container-max-width) + var(--container-padding-desktop) + var(--container-padding-desktop));
+  margin-inline: auto;
+  padding-inline: var(--container-padding-mobile);
+}
+
+/*
+ * タブレット以上では左右余白を40pxに広げます。
+ * 最大幅に達した場合、内側のコンテンツ幅は1200pxになります。
+ */
+@media (min-width: 768px) {
+  .l-container {
+    padding-inline: var(--container-padding-desktop);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
