@@ -1,0 +1,24 @@
+{
+  "name": "official-msb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/style.scss assets/css/style.css",
+    "sass:watch": "sass --watch assets/scss/style.scss:assets/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msbofficial2021-a11y/official-msb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msbofficial2021-a11y/official-msb/issues"
+  },
+  "homepage": "https://github.com/msbofficial2021-a11y/official-msb#readme",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.102.0"
+  }
+}

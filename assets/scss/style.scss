@@ -1,0 +1,15 @@
+/**
+ * Main SCSS entry file.
+ *
+ * このファイルはSCSSの入口です。
+ * 各フォルダに分けたSCSSファイルをここで読み込み、
+ * 最終的に assets/css/style.css として出力します。
+ */
+
+@use "base/reset";
+@use "base/foundation";
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+@use "components/button";
+@use "pages/home";
