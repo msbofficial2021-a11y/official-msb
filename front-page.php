@@ -15,6 +15,7 @@ get_header();
     <?php get_template_part( 'template-parts/sections/home', 'strength' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'works' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'gallery' ); ?>
+    <?php get_template_part( 'template-parts/sections/home', 'blog' ); ?>
 </main>
 
 <?php

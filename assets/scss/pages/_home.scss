@@ -346,3 +346,43 @@
 		}
 	}
 }
+
+/**
+ * Home latest articles section.
+ */
+.home-blog {
+	padding-block: var(--space-64);
+	background-color: var(--color-bg-primary);
+
+	&__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		margin-top: var(--space-48);
+		gap: var(--space-48) var(--space-24);
+	}
+
+	&__action {
+		display: flex;
+		justify-content: center;
+		margin-top: var(--space-48);
+	}
+
+	@media (min-width: 768px) {
+		padding-block: var(--space-96);
+
+		&__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-top: var(--space-64);
+		}
+
+		&__action {
+			margin-top: var(--space-64);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		&__grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+}
