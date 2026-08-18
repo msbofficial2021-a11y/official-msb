@@ -1,0 +1,75 @@
+/**
+ * Work card component.
+ *
+ * Worksの一覧で使用する制作実績カードです。
+ */
+
+.c-work-card {
+	min-width: 0;
+
+	&__link {
+		display: block;
+		color: var(--color-text-primary);
+
+		&:hover {
+			color: var(--color-text-primary);
+
+			.c-work-card__image {
+				transform: scale(1.03);
+			}
+
+			.c-work-card__title {
+				color: var(--color-accent-hover);
+			}
+		}
+
+		&:focus-visible {
+			border-radius: var(--radius-md);
+			outline: 2px solid var(--color-accent-primary);
+			outline-offset: 4px;
+		}
+	}
+
+	&__media {
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+		background-color: var(--color-surface-secondary);
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform var(--transition-base);
+	}
+
+	&__body {
+		padding-top: var(--space-16);
+	}
+
+	&__meta {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 0 var(--space-8);
+		gap: var(--space-8) var(--space-16);
+		color: var(--color-text-muted);
+		font-size: var(--font-size-xs);
+		line-height: var(--line-height-base);
+	}
+
+	&__title {
+		margin: 0;
+		font-family: var(--font-serif-ja);
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+		line-height: var(--line-height-base);
+		transition: color var(--transition-base);
+	}
+
+	&__summary {
+		margin: var(--space-8) 0 0;
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+		line-height: 1.8;
+	}
+}

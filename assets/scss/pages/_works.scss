@@ -1,0 +1,110 @@
+/**
+ * Works archive page.
+ *
+ * /works/のページ見出し、一覧グリッド、ページネーションを管理します。
+ */
+
+.works-archive {
+	padding-block: var(--space-64);
+	background-color: var(--color-bg-primary);
+
+	&__header {
+		max-width: 640px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	&__eyebrow {
+		margin: 0;
+		color: var(--color-text-secondary);
+		font-family: var(--font-serif-display);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-tight);
+
+		&::after {
+			display: block;
+			width: 28px;
+			height: 1px;
+			margin: var(--space-16) auto 0;
+			background-color: var(--color-accent-primary);
+			content: "";
+		}
+	}
+
+	&__title {
+		margin: var(--space-16) 0 0;
+		font-family: var(--font-serif-display);
+		font-size: var(--font-size-xl);
+		font-weight: 500;
+		line-height: var(--line-height-tight);
+	}
+
+	&__lead {
+		margin: var(--space-24) 0 0;
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+		line-height: var(--line-height-base);
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		margin-top: var(--space-48);
+		gap: var(--space-48) var(--space-24);
+	}
+
+	&__empty {
+		margin: var(--space-64) 0 0;
+		color: var(--color-text-muted);
+		text-align: center;
+	}
+
+	.navigation.pagination {
+		margin-top: var(--space-64);
+	}
+
+	.nav-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--space-8);
+	}
+
+	.page-numbers {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 40px;
+		min-height: 40px;
+		padding-inline: var(--space-8);
+		border: 1px solid var(--color-border-primary);
+		background-color: var(--color-surface-primary);
+		font-size: var(--font-size-sm);
+
+		&.current,
+		&:hover {
+			border-color: var(--color-text-primary);
+			background-color: var(--color-text-primary);
+			color: var(--color-text-inverse);
+		}
+	}
+
+	@media (min-width: 768px) {
+		padding-block: var(--space-96);
+
+		&__title {
+			font-size: var(--font-size-2xl);
+		}
+
+		&__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-top: var(--space-64);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		&__grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+}
