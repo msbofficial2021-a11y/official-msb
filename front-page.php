@@ -12,6 +12,7 @@ get_header();
 <main id="primary" class="site-main">
 	<?php get_template_part( 'template-parts/sections/home', 'hero' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'about' ); ?>
+    <?php get_template_part( 'template-parts/sections/home', 'strength' ); ?>
 </main>
 
 <?php

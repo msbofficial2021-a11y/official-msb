@@ -185,3 +185,84 @@
 		}
 	}
 }
+
+/**
+ * Home strength section.
+ */
+.home-strength {
+	padding-block: var(--space-40) var(--space-64);
+	background-color: var(--color-bg-secondary);
+
+	&__list {
+		display: grid;
+		margin-top: var(--space-48);
+		gap: var(--space-48);
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-24);
+	}
+
+	&__media {
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+		background-color: var(--color-surface-primary);
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__body {
+		min-width: 0;
+	}
+
+	&__item-title {
+		margin: 0;
+		font-family: var(--font-serif-ja);
+		font-size: 1.25rem;
+		font-weight: 400;
+		line-height: var(--line-height-base);
+	}
+
+	&__description {
+		margin: var(--space-24) 0 0;
+		font-size: var(--font-size-base);
+		line-height: 1.9;
+	}
+
+	@media (min-width: 768px) {
+		padding-block: var(--space-96);
+
+		&__list {
+			margin-top: var(--space-48);
+			gap: var(--space-40);
+		}
+
+		&__item {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			align-items: center;
+			gap: var(--space-24);
+		}
+
+		// 偶数番目だけ画像を右、文章を左へ入れ替えます。
+		&__item:nth-child(even) &__media {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		&__item:nth-child(even) &__body {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		&__item-title {
+			font-size: var(--font-size-lg);
+		}
+	}
+}
