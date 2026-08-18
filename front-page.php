@@ -16,6 +16,7 @@ get_header();
     <?php get_template_part( 'template-parts/sections/home', 'works' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'gallery' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'blog' ); ?>
+    <?php get_template_part( 'template-parts/sections/home', 'resources' ); ?>
 </main>
 
 <?php

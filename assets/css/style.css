@@ -915,6 +915,42 @@ a:hover {
 }
 
 /**
+ * Home useful resources section.
+ */
+.home-resources {
+  padding-block: var(--space-64);
+  background-color: var(--color-bg-secondary);
+}
+.home-resources__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: var(--space-48);
+  gap: var(--space-32) var(--space-24);
+}
+.home-resources__action {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-48);
+}
+@media (min-width: 768px) {
+  .home-resources {
+    padding-block: var(--space-96);
+  }
+  .home-resources__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: var(--space-64);
+  }
+  .home-resources__action {
+    margin-top: var(--space-64);
+  }
+}
+@media (min-width: 1024px) {
+  .home-resources__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/**
  * Works archive page.
  *
  * /works/のページ見出し、一覧グリッド、ページネーションを管理します。
