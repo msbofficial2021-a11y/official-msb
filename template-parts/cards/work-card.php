@@ -17,6 +17,19 @@ $work_year        = function_exists( 'get_field' ) ? get_field( 'work_year' ) : 
 $work_type        = function_exists( 'get_field' ) ? get_field( 'work_type' ) : '';
 $work_summary     = function_exists( 'get_field' ) ? get_field( 'work_summary' ) : '';
 $main_visual_id   = function_exists( 'get_field' ) ? get_field( 'work_main_visual' ) : 0;
+
+/*
+ * 呼び出し元から見出しレベルを変更できます。
+ * 指定がない場合はWorks一覧用のh2を使用します。
+ */
+$heading_level = isset( $args['heading_level'] )
+	? (int) $args['heading_level']
+	: 2;
+
+if ( ! in_array( $heading_level, array( 2, 3 ), true ) ) {
+	$heading_level = 2;
+}
+
 ?>
 
 <article <?php post_class( 'c-work-card' ); ?>>
@@ -54,9 +67,15 @@ $main_visual_id   = function_exists( 'get_field' ) ? get_field( 'work_main_visua
 				</p>
 			<?php endif; ?>
 
-			<h2 class="c-work-card__title">
-				<?php the_title(); ?>
-			</h2>
+            <?php if ( 3 === $heading_level ) : ?>
+                <h3 class="c-work-card__title">
+                    <?php the_title(); ?>
+                </h3>
+            <?php else : ?>
+                <h2 class="c-work-card__title">
+                    <?php the_title(); ?>
+                </h2>
+            <?php endif; ?>
 
 			<?php if ( $work_summary ) : ?>
 				<p class="c-work-card__summary">

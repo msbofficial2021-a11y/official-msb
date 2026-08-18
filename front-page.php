@@ -13,6 +13,7 @@ get_header();
 	<?php get_template_part( 'template-parts/sections/home', 'hero' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'about' ); ?>
     <?php get_template_part( 'template-parts/sections/home', 'strength' ); ?>
+    <?php get_template_part( 'template-parts/sections/home', 'works' ); ?>
 </main>
 
 <?php
