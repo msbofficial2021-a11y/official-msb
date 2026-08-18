@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Accessible Accordion Demo</title>
+	<link rel="stylesheet" href="./style.css">
+	<script src="./script.js" defer></script>
+</head>
+
+<body>
+	<main class="demo">
+		<div class="demo__inner">
+			<p class="demo__eyebrow">UI COMPONENT</p>
+			<h1 class="demo__title">Accordion</h1>
+
+			<p class="demo__description">
+				質問を選択すると、回答を開閉できます。
+			</p>
+
+			<div class="accordion">
+				<section class="accordion__item">
+					<h2 class="accordion__heading">
+						<button
+							id="accordion-button-1"
+							class="accordion__button"
+							type="button"
+							aria-expanded="false"
+							aria-controls="accordion-panel-1"
+						>
+							<span>アコーディオンとは何ですか？</span>
+							<span class="accordion__icon" aria-hidden="true"></span>
+						</button>
+					</h2>
+
+					<div
+						id="accordion-panel-1"
+						class="accordion__panel"
+						role="region"
+						aria-labelledby="accordion-button-1"
+						hidden
+					>
+						<div class="accordion__content">
+							情報を折りたたんで整理し、必要な内容だけを
+							表示できるUIコンポーネントです。
+						</div>
+					</div>
+				</section>
+
+				<section class="accordion__item">
+					<h2 class="accordion__heading">
+						<button
+							id="accordion-button-2"
+							class="accordion__button"
+							type="button"
+							aria-expanded="false"
+							aria-controls="accordion-panel-2"
+						>
+							<span>キーボードでも操作できますか？</span>
+							<span class="accordion__icon" aria-hidden="true"></span>
+						</button>
+					</h2>
+
+					<div
+						id="accordion-panel-2"
+						class="accordion__panel"
+						role="region"
+						aria-labelledby="accordion-button-2"
+						hidden
+					>
+						<div class="accordion__content">
+							Tabキーでボタンへ移動し、Enterキーまたは
+							Spaceキーで開閉できます。
+						</div>
+					</div>
+				</section>
+
+				<section class="accordion__item">
+					<h2 class="accordion__heading">
+						<button
+							id="accordion-button-3"
+							class="accordion__button"
+							type="button"
+							aria-expanded="false"
+							aria-controls="accordion-panel-3"
+						>
+							<span>複数の項目を同時に開けますか？</span>
+							<span class="accordion__icon" aria-hidden="true"></span>
+						</button>
+					</h2>
+
+					<div
+						id="accordion-panel-3"
+						class="accordion__panel"
+						role="region"
+						aria-labelledby="accordion-button-3"
+						hidden
+					>
+						<div class="accordion__content">
+							このデモでは、必要な項目を複数同時に
+							開いたままにできます。
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
