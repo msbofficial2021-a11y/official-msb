@@ -2412,6 +2412,98 @@ a:hover {
   }
 }
 
+.profile-web-career {
+  padding-block: var(--space-80);
+  background-color: var(--color-bg-primary);
+}
+.profile-web-career__list {
+  display: grid;
+  max-width: 1200px;
+  margin: var(--space-64) auto 0;
+  gap: var(--space-64);
+}
+.profile-web-career__item {
+  display: grid;
+  gap: var(--space-24);
+}
+.profile-web-career__media {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background-color: var(--color-bg-secondary);
+}
+.profile-web-career__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-web-career__body {
+  align-self: center;
+  min-width: 0;
+}
+.profile-web-career__title {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  line-height: var(--line-height-base);
+}
+.profile-web-career__number {
+  margin-right: var(--space-8);
+  color: var(--color-text-muted);
+}
+.profile-web-career__subtitle {
+  margin: var(--space-8) 0 0;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+}
+.profile-web-career__description {
+  margin: var(--space-16) 0 0;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+}
+.profile-web-career__points {
+  display: grid;
+  margin: var(--space-16) 0 0;
+  padding: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  list-style: none;
+  gap: var(--space-4);
+}
+.profile-web-career__points li {
+  position: relative;
+  padding-left: 1em;
+}
+.profile-web-career__points li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "・";
+}
+@media (min-width: 768px) {
+  .profile-web-career {
+    padding-block: var(--space-120);
+  }
+  .profile-web-career__list {
+    gap: var(--space-48);
+  }
+  .profile-web-career__item {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: var(--space-40);
+  }
+  .profile-web-career__item:nth-child(even) .profile-web-career__media {
+    order: 2;
+  }
+  .profile-web-career__item:nth-child(even) .profile-web-career__body {
+    order: 1;
+  }
+  .profile-web-career__title {
+    font-size: var(--font-size-xl);
+  }
+}
+
 .profile-skills {
   padding-block: var(--space-80);
   background-color: var(--color-bg-primary);
