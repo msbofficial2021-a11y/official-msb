@@ -257,6 +257,27 @@
             "default_value": "",
             "allow_in_bindings": 0,
             "placeholder": "https:\/\/github.com\/ユーザー名\/リポジトリ名"
+        },
+        {
+            "key": "field_6a83f1dd3a007",
+            "label": "デモディレクトリ",
+            "name": "gallery_demo_directory",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "assets\/demos\/以下のフォルダ名を入力します。",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 50,
+            "allow_in_bindings": 0,
+            "placeholder": "accordion",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -280,5 +301,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1787024702
+    "modified": 1787032088
 }
