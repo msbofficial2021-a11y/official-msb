@@ -14,3 +14,4 @@ require_once get_theme_file_path( '/inc/setup.php' );
 require_once get_theme_file_path( '/inc/enqueue.php' );
 require_once get_theme_file_path( '/inc/post-types.php' );
 require_once get_theme_file_path( '/inc/taxonomies.php' );
+require_once get_theme_file_path( '/inc/query.php' );
