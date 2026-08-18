@@ -1,8 +1,8 @@
 <?php
 /**
- * Profile skills section.
+ * Profile What I Use section.
  *
- * Profileページで、現在扱っている技術と対応領域を表示します。
+ * Profileページで、使用技術を3つのカードに分けて表示します。
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,104 +10,93 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
- * スキル情報をPHP配列で管理します。
- *
- * ACF無料版ではRepeaterを使用できないため、繰り返し表示する内容を
- * 配列へまとめ、foreachで同じHTML構造を出力します。
+ * ACFが無効な場合でもFatal errorにならないように、
+ * get_field()が使用できる場合だけ画像IDを取得します。
  */
-$profile_skills = array(
+$frontend_image_id = function_exists( 'get_field' )
+	? (int) get_field( 'profile_use_frontend_image' )
+	: 0;
+
+$cms_image_id = function_exists( 'get_field' )
+	? (int) get_field( 'profile_use_cms_image' )
+	: 0;
+
+$development_image_id = function_exists( 'get_field' )
+	? (int) get_field( 'profile_use_development_image' )
+	: 0;
+
+/*
+ * 各カードの内容を配列へまとめます。
+ *
+ * 同じHTMLを3回記述せず、項目の追加や文言変更を
+ * 一か所で管理できるようにしています。
+ */
+$profile_tools = array(
 	array(
-		'number'     => '01',
-		'title'      => 'Frontend',
-		'description' => 'HTMLとCSSを基礎に、レスポンシブ対応やアクセシビリティを意識したWebページを実装します。',
-		'technologies' => array(
-			'HTML',
-			'CSS / SCSS',
-			'JavaScript',
-		),
+		'title'    => 'Frontend',
+		'skills'   => 'HTML / CSS / JavaScript',
+		'image_id' => $frontend_image_id,
 	),
 	array(
-		'number'     => '02',
-		'title'      => 'WordPress',
-		'description' => 'オリジナルテーマ制作を通して、テンプレート階層やWordPress標準APIを活用したサイト構築に取り組んでいます。',
-		'technologies' => array(
-			'PHP',
-			'Custom Post Type',
-			'ACF',
-		),
+		'title'    => 'CMS / EC',
+		'skills'   => 'WordPress / Shopify / ACF',
+		'image_id' => $cms_image_id,
 	),
 	array(
-		'number'     => '03',
-		'title'      => 'Shopify',
-		'description' => '既存テーマの修正やLP制作を中心に、デザインをもとにしたページ実装と運用対応を行います。',
-		'technologies' => array(
-			'Liquid',
-			'CSS',
-			'JavaScript',
-		),
-	),
-	array(
-		'number'     => '04',
-		'title'      => 'Development',
-		'description' => 'GitとGitHubによるバージョン管理や、SCSSのコンパイル環境を取り入れながら開発を進めています。',
-		'technologies' => array(
-			'Git / GitHub',
-			'npm',
-			'Local',
-		),
+		'title'    => 'Development',
+		'skills'   => 'Git / GitHub / SCSS',
+		'image_id' => $development_image_id,
 	),
 );
 ?>
 
 <section
-	class="profile-skills"
-	aria-labelledby="profile-skills-title"
+	class="profile-use"
+	aria-labelledby="profile-use-title"
 >
-	<div class="profile-skills__inner l-container">
+	<div class="l-container">
 		<?php
 		get_template_part(
 			'template-parts/components/section',
 			'heading',
 			array(
 				'eyebrow'    => '( SKILLS )',
-				'title'      => 'Technical Skills',
-				'heading_id' => 'profile-skills-title',
+				'title'      => 'What I Use',
+				'heading_id' => 'profile-use-title',
 			)
 		);
 		?>
 
-		<ul class="profile-skills__list">
-			<?php foreach ( $profile_skills as $skill ) : ?>
-				<li class="profile-skills__item">
-					<span
-						class="profile-skills__number"
-						aria-hidden="true"
-					>
-						<?php echo esc_html( $skill['number'] ); ?>
-					</span>
+		<div class="profile-use__grid">
+			<?php foreach ( $profile_tools as $tool ) : ?>
+				<article class="profile-use__card">
+					<?php if ( $tool['image_id'] ) : ?>
+						<div class="profile-use__media">
+							<?php
+							echo wp_get_attachment_image(
+								$tool['image_id'],
+								'medium_large',
+								false,
+								array(
+									'class'   => 'profile-use__image',
+									'loading' => 'lazy',
+								)
+							);
+							?>
+						</div>
+					<?php endif; ?>
 
-					<div class="profile-skills__body">
-						<h3 class="profile-skills__title">
-							<?php echo esc_html( $skill['title'] ); ?>
+					<div class="profile-use__body">
+						<h3 class="profile-use__title">
+							<?php echo esc_html( $tool['title'] ); ?>
 						</h3>
 
-						<p class="profile-skills__description">
-							<?php echo esc_html( $skill['description'] ); ?>
+						<p class="profile-use__skills">
+							<?php echo esc_html( $tool['skills'] ); ?>
 						</p>
-
-						<ul
-							class="profile-skills__technologies"
-							aria-label="<?php echo esc_attr( $skill['title'] . 'で使用する技術' ); ?>"
-						>
-							<?php foreach ( $skill['technologies'] as $technology ) : ?>
-								<li class="profile-skills__technology">
-									<?php echo esc_html( $technology ); ?>
-								</li>
-							<?php endforeach; ?>
-						</ul>
 					</div>
-				</li>
+				</article>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 	</div>
 </section>
