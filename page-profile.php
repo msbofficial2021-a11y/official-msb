@@ -19,18 +19,18 @@ get_header();
 
 		<article <?php post_class( 'profile-page' ); ?>>
 			<?php
-			get_template_part(
-				'template-parts/components/page',
-				'hero',
-				array(
-					'eyebrow'    => '( PROFILE )',
-					'title'      => 'About Me',
-					'lead'       => "作って終わりではなく、\n学び・発信し・成長し続ける。",
-					'image_id'   => get_post_thumbnail_id(),
-					'modifier'   => 'profile',
-					'heading_id' => 'profile-page-title',
-				)
-			);
+                get_template_part(
+                    'template-parts/components/page',
+                    'hero',
+                    array(
+                        'eyebrow'    => 'PROFILE',
+                        'title'      => 'About Me',
+                        'lead'       => '経験、スキル、これまでとこれから。',
+                        'image_id'   => get_post_thumbnail_id(),
+                        'modifier'   => 'profile',
+                        'heading_id' => 'profile-page-title',
+                    )
+                );
 			?>
             <?php get_template_part( 'template-parts/sections/profile', 'about' ); ?>
             <?php get_template_part( 'template-parts/sections/profile', 'career' ); ?>

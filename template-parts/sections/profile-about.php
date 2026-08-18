@@ -2,12 +2,20 @@
 /**
  * Profile About section.
  *
- * Profileページで、経歴の概要と現在の目標を紹介します。
+ * Profileページで、プロフィール概要と基本情報を表示します。
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+/*
+ * ACFが無効な場合でもFatal errorにならないように、
+ * get_field()が使用できる場合だけ画像IDを取得します。
+ */
+$profile_about_image_id = function_exists( 'get_field' )
+	? (int) get_field( 'profile_about_image' )
+	: 0;
 ?>
 
 <section
@@ -21,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'heading',
 			array(
 				'eyebrow'    => '( ABOUT )',
-				'title'      => 'Who I Am',
+				'title'      => 'Web Developer / Coder',
 				'heading_id' => 'profile-about-title',
 			)
 		);
@@ -29,47 +37,75 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="profile-about__content">
 			<div class="profile-about__introduction">
-				<p class="profile-about__statement">
-					使う人の心と成果を考えながら、<br>
-					Webサイトを丁寧に実装します。
+				<p class="profile-about__name">
+					菅谷 将司
+					<span lang="en">Masashi Sugaya</span>
 				</p>
 
 				<div class="profile-about__description">
 					<p>
-						Web制作会社で約2年半勤務し、HTML/CSSを中心とした
-						コーディングやレスポンシブ対応、既存サイトの
-						修正・改善を経験してきました。
+						1998年生まれ。<br>
+						Web制作会社での実務経験を経て、<br>
+						現在はWebサイトの導入支援・修正などに携わっています。
 					</p>
 
 					<p>
-						現在はShopifyやWordPressの制作にも取り組み、
-						実務と学習をつなげながら、設計から運用まで
-						理解できるWebエンジニアを目指しています。
+						「ものづくりには人の心が欠かせない」を大切に、<br>
+						技術だけではなく、その先にいる人を考えながら<br>
+						Web制作に取り組んでいます。
 					</p>
 				</div>
+
+				<dl class="profile-about__details">
+					<div class="profile-about__detail">
+						<dt>LOCATION</dt>
+						<dd>Japan</dd>
+					</div>
+
+					<div class="profile-about__detail">
+						<dt>CAREER</dt>
+						<dd>Web Industry 3+ Years</dd>
+					</div>
+
+					<div class="profile-about__detail">
+						<dt>ROLE</dt>
+						<dd>Web Developer / Coder</dd>
+					</div>
+				</dl>
 			</div>
 
-			<dl class="profile-about__details">
-				<div class="profile-about__detail">
-					<dt>Role</dt>
-					<dd>Web Developer / Coder</dd>
-				</div>
+			<aside
+				class="profile-about__card"
+				aria-label="プロフィール概要"
+			>
+				<?php if ( $profile_about_image_id ) : ?>
+					<div class="profile-about__card-media">
+						<?php
+						echo wp_get_attachment_image(
+							$profile_about_image_id,
+							'medium',
+							false,
+							array(
+								'class'   => 'profile-about__card-image',
+								'alt'     => '菅谷将司のプロフィールイラスト',
+								'loading' => 'lazy',
+							)
+						);
+						?>
+					</div>
+				<?php endif; ?>
 
-				<div class="profile-about__detail">
-					<dt>Experience</dt>
-					<dd>Web制作会社 約2年半</dd>
-				</div>
+				<p class="profile-about__card-label">
+					Profile / Career / Skills
+				</p>
 
-				<div class="profile-about__detail">
-					<dt>Focus</dt>
-					<dd>WordPress / Shopify</dd>
-				</div>
-
-				<div class="profile-about__detail">
-					<dt>Location</dt>
-					<dd>Japan</dd>
-				</div>
-			</dl>
+				<a
+					class="c-button c-button--outline profile-about__card-button"
+					href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"
+				>
+					CONTACT
+				</a>
+			</aside>
 		</div>
 	</div>
 </section>

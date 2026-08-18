@@ -2,25 +2,11 @@
  * Page Hero component.
  *
  * 下層ページで共通使用するメインビジュアルです。
- * SPでは画像とテキストを縦に配置し、
- * Desktopでは画像の上へテキストを重ねます。
+ * 画像がある場合は、画面幅を問わず画像上へ文字を重ねます。
  */
 
 .c-page-hero {
 	background-color: var(--color-surface-secondary);
-
-	&__media {
-		overflow: hidden;
-		aspect-ratio: 16 / 9;
-		background-color: var(--color-bg-secondary);
-	}
-
-	&__image {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center;
-	}
 
 	&__inner {
 		padding-block: var(--space-40);
@@ -57,70 +43,80 @@
 		font-size: var(--font-size-sm);
 	}
 
+	&--has-image {
+		position: relative;
+		isolation: isolate;
+		display: grid;
+		min-height: 320px;
+		overflow: hidden;
+		background-color: var(--color-text-primary);
+		color: var(--color-text-inverse);
+		align-items: center;
+
+		.c-page-hero__media {
+			position: absolute;
+			z-index: -1;
+			inset: 0;
+
+			&::after {
+				position: absolute;
+				inset: 0;
+				background-color: rgb(30 29 27 / 55%);
+				content: "";
+			}
+		}
+
+		.c-page-hero__image {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.c-page-hero__inner {
+			width: 100%;
+			padding-block: var(--space-64);
+		}
+
+		.c-page-hero__eyebrow {
+			color: currentcolor;
+		}
+
+		.c-page-hero__title {
+			max-width: 800px;
+		}
+
+		.c-page-hero__lead {
+			max-width: 720px;
+		}
+	}
+
+	&--profile {
+		.c-page-hero__image {
+			object-position: center;
+		}
+	}
+
 	@media (min-width: 768px) {
 		&--has-image {
-			position: relative;
-			isolation: isolate;
-			display: grid;
 			min-height: 440px;
-			overflow: hidden;
-			background-color: var(--color-text-primary);
-			color: var(--color-text-inverse);
-			align-items: center;
-
-			.c-page-hero__media {
-				position: absolute;
-				z-index: -1;
-				inset: 0;
-				aspect-ratio: auto;
-
-				&::after {
-					position: absolute;
-					inset: 0;
-					background-color: rgb(47 45 42 / 62%);
-					content: "";
-				}
-			}
 
 			.c-page-hero__inner {
-				width: 100%;
 				padding-block: var(--space-80);
 			}
 
-			.c-page-hero__eyebrow {
-				color: currentcolor;
-			}
-
 			.c-page-hero__title {
-				max-width: 800px;
 				font-size: var(--font-size-2xl);
 			}
 
 			.c-page-hero__lead {
-				max-width: 640px;
-				font-size: var(--font-size-lg);
+				font-size: var(--font-size-xl);
 			}
 		}
 
-		/*
-		 * Profile画像は左側に十分な余白があり、
-		 * 明るい背景のため暗い文字で表示します。
-		 */
 		&--profile {
-			min-height: 520px;
-			background-color: var(--color-surface-secondary);
-			color: var(--color-text-primary);
-
-			.c-page-hero__media::after {
-				display: none;
-			}
-
 			.c-page-hero__image {
 				object-position: center 30%;
-			}
-
-			.c-page-hero__eyebrow {
-				color: var(--color-text-muted);
 			}
 		}
 	}

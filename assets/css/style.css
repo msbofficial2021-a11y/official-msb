@@ -515,22 +515,10 @@ a:hover {
  * Page Hero component.
  *
  * 下層ページで共通使用するメインビジュアルです。
- * SPでは画像とテキストを縦に配置し、
- * Desktopでは画像の上へテキストを重ねます。
+ * 画像がある場合は、画面幅を問わず画像上へ文字を重ねます。
  */
 .c-page-hero {
   background-color: var(--color-surface-secondary);
-}
-.c-page-hero__media {
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  background-color: var(--color-bg-secondary);
-}
-.c-page-hero__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 .c-page-hero__inner {
   padding-block: var(--space-40);
@@ -562,63 +550,64 @@ a:hover {
   gap: var(--space-8) var(--space-16);
   font-size: var(--font-size-sm);
 }
+.c-page-hero--has-image {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 320px;
+  overflow: hidden;
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  align-items: center;
+}
+.c-page-hero--has-image .c-page-hero__media {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+}
+.c-page-hero--has-image .c-page-hero__media::after {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(30, 29, 27, 0.55);
+  content: "";
+}
+.c-page-hero--has-image .c-page-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-page-hero--has-image .c-page-hero__inner {
+  width: 100%;
+  padding-block: var(--space-64);
+}
+.c-page-hero--has-image .c-page-hero__eyebrow {
+  color: currentcolor;
+}
+.c-page-hero--has-image .c-page-hero__title {
+  max-width: 800px;
+}
+.c-page-hero--has-image .c-page-hero__lead {
+  max-width: 720px;
+}
+.c-page-hero--profile .c-page-hero__image {
+  object-position: center;
+}
 @media (min-width: 768px) {
   .c-page-hero--has-image {
-    position: relative;
-    isolation: isolate;
-    display: grid;
     min-height: 440px;
-    overflow: hidden;
-    background-color: var(--color-text-primary);
-    color: var(--color-text-inverse);
-    align-items: center;
-  }
-  .c-page-hero--has-image .c-page-hero__media {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    aspect-ratio: auto;
-  }
-  .c-page-hero--has-image .c-page-hero__media::after {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(47, 45, 42, 0.62);
-    content: "";
   }
   .c-page-hero--has-image .c-page-hero__inner {
-    width: 100%;
     padding-block: var(--space-80);
   }
-  .c-page-hero--has-image .c-page-hero__eyebrow {
-    color: currentcolor;
-  }
   .c-page-hero--has-image .c-page-hero__title {
-    max-width: 800px;
     font-size: var(--font-size-2xl);
   }
   .c-page-hero--has-image .c-page-hero__lead {
-    max-width: 640px;
-    font-size: var(--font-size-lg);
-  }
-  .c-page-hero {
-    /*
-     * Profile画像は左側に十分な余白があり、
-     * 明るい背景のため暗い文字で表示します。
-     */
-  }
-  .c-page-hero--profile {
-    min-height: 520px;
-    background-color: var(--color-surface-secondary);
-    color: var(--color-text-primary);
-  }
-  .c-page-hero--profile .c-page-hero__media::after {
-    display: none;
+    font-size: var(--font-size-xl);
   }
   .c-page-hero--profile .c-page-hero__image {
     object-position: center 30%;
-  }
-  .c-page-hero--profile .c-page-hero__eyebrow {
-    color: var(--color-text-muted);
   }
 }
 
@@ -2304,15 +2293,23 @@ a:hover {
 }
 .profile-about__content {
   display: grid;
-  max-width: 960px;
+  max-width: 1080px;
   margin: var(--space-64) auto 0;
   gap: var(--space-48);
 }
-.profile-about__statement {
+.profile-about__introduction {
+  min-width: 0;
+}
+.profile-about__name {
   margin: 0;
   font-family: var(--font-serif-ja);
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-loose);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-base);
+}
+.profile-about__name span {
+  display: inline-block;
+  margin-left: var(--space-8);
+  font-family: var(--font-serif-display);
 }
 .profile-about__description {
   margin-top: var(--space-32);
@@ -2326,37 +2323,64 @@ a:hover {
   margin-top: var(--space-24);
 }
 .profile-about__details {
-  margin: 0;
-  border-top: 1px solid var(--color-border-primary);
+  display: grid;
+  margin: var(--space-32) 0 0;
+  gap: var(--space-8);
 }
 .profile-about__detail {
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  padding-block: var(--space-16);
-  border-bottom: 1px solid var(--color-border-primary);
+  grid-template-columns: 112px minmax(0, 1fr);
   gap: var(--space-16);
 }
 .profile-about__detail dt {
-  color: var(--color-text-muted);
-  font-family: var(--font-serif-display);
+  color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
 }
 .profile-about__detail dd {
   min-width: 0;
   margin: 0;
   color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+}
+.profile-about__card {
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  padding: var(--space-32);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 8px;
+  background-color: var(--color-bg-primary);
+  text-align: center;
+}
+.profile-about__card-media {
+  aspect-ratio: 1;
+}
+.profile-about__card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.profile-about__card-label {
+  margin: var(--space-16) 0 0;
+  color: var(--color-text-muted);
+}
+.profile-about__card-button {
+  width: 100%;
+  margin-top: var(--space-24);
 }
 @media (min-width: 768px) {
   .profile-about {
     padding-block: var(--space-120);
   }
   .profile-about__content {
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: center;
     gap: var(--space-80);
   }
-  .profile-about__statement {
-    font-size: var(--font-size-xl);
+  .profile-about__card {
+    margin-inline: 0;
   }
 }
 

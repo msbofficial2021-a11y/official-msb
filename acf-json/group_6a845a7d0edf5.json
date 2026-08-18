@@ -3,25 +3,30 @@
     "title": "Profile Page",
     "fields": [
         {
-            "key": "field_6a845a7d043fc",
-            "label": "",
-            "name": "",
+            "key": "field_6a84602b577a8",
+            "label": "Profile About 画像",
+            "name": "profile_about_image",
             "aria-label": "",
-            "type": "text",
+            "type": "image",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "preview_size": "medium_large"
         },
         {
             "key": "field_6a845a9b246e1",
@@ -97,5 +102,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1787059011
+    "modified": 1787060333
 }
