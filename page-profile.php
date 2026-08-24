@@ -37,6 +37,7 @@ get_header();
             <?php get_template_part( 'template-parts/sections/profile', 'web-career' ); ?>
             <?php get_template_part( 'template-parts/sections/profile', 'skills' ); ?>
             <?php get_template_part( 'template-parts/sections/profile', 'strength'); ?>
+            <?php get_template_part( 'template-parts/sections/profile-learning' ); ?>
 		</article>
 	<?php endwhile; ?>
 </main>
