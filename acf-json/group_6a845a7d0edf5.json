@@ -261,6 +261,32 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium_large"
+        },
+        {
+            "key": "field_6a8c0639ffcd9",
+            "label": "Vision 画像",
+            "name": "profile_vision_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium_large"
         }
     ],
     "location": [
@@ -284,5 +310,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1787107932
+    "modified": 1787561609
 }

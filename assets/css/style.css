@@ -2830,4 +2830,67 @@ a:hover {
   }
 }
 
+/**
+ * Profile: Where I'm Going
+ *
+ * 今後目指す方向性を、文章とイメージ画像で表示します。
+ */
+.profile-vision {
+  padding-block: var(--space-80);
+  background-color: var(--color-bg-primary);
+}
+.profile-vision__content {
+  display: grid;
+  max-width: 1080px;
+  margin: var(--space-48) auto 0;
+  gap: var(--space-32);
+}
+.profile-vision__body {
+  min-width: 0;
+}
+.profile-vision__lead {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  line-height: var(--line-height-loose);
+  letter-spacing: 0;
+}
+.profile-vision__text {
+  display: grid;
+  margin-top: var(--space-32);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  gap: var(--space-20);
+}
+.profile-vision__text p {
+  margin: 0;
+}
+.profile-vision__media {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  border-radius: 4px;
+  background-color: var(--color-surface-secondary);
+}
+.profile-vision__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .profile-vision {
+    padding-block: var(--space-120);
+  }
+  .profile-vision__content {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    align-items: center;
+    margin-top: var(--space-64);
+    gap: var(--space-64);
+  }
+  .profile-vision__lead {
+    font-size: var(--font-size-2xl);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

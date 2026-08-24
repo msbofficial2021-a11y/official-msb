@@ -39,6 +39,7 @@ get_header();
             <?php get_template_part( 'template-parts/sections/profile', 'strength'); ?>
             <?php get_template_part( 'template-parts/sections/profile-learning' ); ?>
             <?php get_template_part( 'template-parts/sections/profile-certifications' ); ?>
+            <?php get_template_part( 'template-parts/sections/profile', 'vision' ); ?>
 		</article>
 	<?php endwhile; ?>
 </main>
