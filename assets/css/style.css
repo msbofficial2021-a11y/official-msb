@@ -2759,4 +2759,75 @@ a:hover {
   }
 }
 
+/**
+ * Profile: Certifications
+ *
+ * 保有資格をカード形式で表示します。
+ */
+.profile-certifications {
+  padding-block: var(--space-80);
+  background-color: var(--color-bg-primary);
+}
+.profile-certifications__lead {
+  max-width: 640px;
+  margin: var(--space-32) auto 0;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: var(--line-height-loose);
+}
+.profile-certifications__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1080px;
+  margin: var(--space-48) auto 0;
+  gap: var(--space-24);
+}
+.profile-certifications__card {
+  min-width: 0;
+  padding: var(--space-16);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 4px;
+  background-color: var(--color-bg-primary);
+}
+.profile-certifications__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 4px;
+  background-color: var(--color-bg-secondary);
+}
+.profile-certifications__mark {
+  display: grid;
+  place-items: center;
+  gap: var(--space-4);
+  color: var(--color-text-primary);
+  font-family: var(--font-serif-display);
+  text-align: center;
+}
+.profile-certifications__mark-main {
+  font-size: var(--font-size-xl);
+  line-height: 1;
+}
+.profile-certifications__mark-sub {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+.profile-certifications__title {
+  margin: var(--space-16) 0 0;
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: var(--line-height-base);
+}
+@media (min-width: 768px) {
+  .profile-certifications {
+    padding-block: var(--space-120);
+  }
+  .profile-certifications__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-32);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
