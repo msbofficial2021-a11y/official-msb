@@ -2893,4 +2893,113 @@ a:hover {
   }
 }
 
+/**
+ * Component: Contact CTA
+ *
+ * 全ページ共通で使用するお問い合わせ導線です。
+ * 背景画像の上に暗いオーバーレイを重ね、白文字を読みやすくします。
+ */
+.c-contact-cta {
+  position: relative;
+  display: grid;
+  min-height: 360px;
+  overflow: hidden;
+  color: #fff;
+  background-color: #1f1f1f;
+  place-items: center;
+  isolation: isolate;
+}
+.c-contact-cta::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.58);
+  content: "";
+}
+.c-contact-cta__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.c-contact-cta__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-contact-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 960px);
+  margin-inline: auto;
+  padding: var(--space-72) var(--space-24);
+  text-align: center;
+}
+.c-contact-cta__eyebrow {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-base);
+}
+.c-contact-cta__eyebrow::after {
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin: var(--space-12) auto 0;
+  background-color: currentColor;
+  opacity: 0.72;
+  content: "";
+}
+.c-contact-cta__title {
+  margin: var(--space-16) 0 0;
+  font-family: var(--font-serif-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: var(--line-height-tight);
+}
+.c-contact-cta__text {
+  max-width: 680px;
+  margin: var(--space-24) 0 0;
+  line-height: var(--line-height-loose);
+}
+.c-contact-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  min-height: 52px;
+  margin-top: var(--space-32);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  background-color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.c-contact-cta__button:hover, .c-contact-cta__button:focus-visible {
+  color: #fff;
+  background-color: transparent;
+}
+@media (max-width: 767px) {
+  .c-contact-cta {
+    min-height: 380px;
+  }
+  .c-contact-cta__inner {
+    padding-block: var(--space-64);
+  }
+  .c-contact-cta__title {
+    font-size: 2rem;
+  }
+  .c-contact-cta__text {
+    max-width: 300px;
+    font-size: var(--font-size-sm);
+  }
+  .c-contact-cta__button {
+    width: min(100%, 320px);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

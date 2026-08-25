@@ -4,6 +4,12 @@
  */
 ?>
 
+<?php
+if ( ! is_page( array( 'contact', 'thanks' ) ) ) {
+	get_template_part( 'template-parts/components/contact-cta' );
+}
+?>
+
 <footer class="site-footer">
 	<div class="site-footer__inner l-container">
 		<a class="site-footer__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
