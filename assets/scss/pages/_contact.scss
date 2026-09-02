@@ -1,0 +1,147 @@
+/**
+ * Contact / Thanks
+ *
+ * ContactページとThanksページの共通レイアウトです。
+ * MVはpage-heroコンポーネントを流用し、本文エリアだけ個別に整えます。
+ */
+
+.contact-page,
+.thanks-page {
+	background-color: var(--color-bg-primary);
+}
+
+.contact-page__section,
+.thanks-page__section {
+	padding-block: var(--space-72) var(--space-96);
+}
+
+.contact-page__inner,
+.thanks-page__inner {
+	max-width: 760px;
+}
+
+.contact-page__lead,
+.thanks-page__message {
+	margin: var(--space-40) auto 0;
+	text-align: center;
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-loose);
+}
+
+.contact-page__lead p,
+.thanks-page__message p {
+	margin: 0;
+}
+
+.contact-page__lead p + p,
+.thanks-page__message p + p {
+	margin-top: var(--space-24);
+}
+
+.contact-form {
+	display: grid;
+	max-width: 640px;
+	margin: var(--space-56) auto 0;
+	gap: var(--space-32);
+}
+
+.contact-form__field {
+	display: grid;
+	gap: var(--space-10);
+}
+
+.contact-form__label {
+	color: var(--color-text-primary);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+}
+
+.contact-form__control {
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid var(--color-border-primary);
+	border-radius: 0;
+	background-color: transparent;
+	padding: var(--space-8) 0;
+	color: var(--color-text-primary);
+	font: inherit;
+}
+
+.contact-form__control:focus {
+	outline: 1px solid var(--color-text-primary);
+	outline-offset: 4px;
+}
+
+.contact-form__textarea {
+	min-height: 160px;
+	resize: vertical;
+}
+
+.contact-form__checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: var(--space-8);
+	line-height: var(--line-height-base);
+}
+
+.contact-form__checkbox {
+	width: 1em;
+	height: 1em;
+	margin: 0;
+}
+
+.contact-form__action,
+.thanks-page__action {
+	display: flex;
+	justify-content: center;
+}
+
+.contact-form__button,
+.thanks-page__button {
+	min-width: 180px;
+	border-color: var(--color-text-primary);
+	background-color: var(--color-text-primary);
+	color: var(--color-bg-primary);
+}
+
+.thanks-page__action {
+	margin-top: var(--space-48);
+}
+
+@media (min-width: 768px) {
+	.contact-page__section,
+	.thanks-page__section {
+		padding-block: var(--space-96) var(--space-120);
+	}
+
+	.contact-page__lead,
+	.thanks-page__message {
+		margin-top: var(--space-48);
+		font-size: var(--font-size-md);
+	}
+
+	.contact-form {
+		margin-top: var(--space-64);
+	}
+}
+
+@media (max-width: 767px) {
+	.contact-page__section,
+	.thanks-page__section {
+		padding-block: var(--space-64) var(--space-80);
+	}
+
+	.contact-page__lead br {
+		display: none;
+	}
+
+	.contact-form {
+		margin-top: var(--space-48);
+		gap: var(--space-28);
+	}
+
+	.contact-form__button,
+	.thanks-page__button {
+		width: 100%;
+	}
+}
